@@ -68,7 +68,7 @@
               "RelativeDocumentMoniker": "Blazor-Labb\\Components\\Pages\\NewUser.razor",
               "ToolTip": "C:\\Users\\acarl\\Desktop\\ITHS\\Programmering C#\\Blazor-Labb\\Blazor-Labb\\Components\\Pages\\NewUser.razor",
               "RelativeToolTip": "Blazor-Labb\\Components\\Pages\\NewUser.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAABgAAAAOAAAAAAAAAA==",
+              "ViewState": "AgIAAEUAAAAAAAAAAAAAAB8AAAAyAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-10-08T09:04:40.124Z",
               "EditorCaption": ""
@@ -95,8 +95,7 @@
               "RelativeToolTip": "Blazor-Labb\\Components\\Pages\\Home.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-08T09:02:51.058Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-08T09:02:51.058Z"
             }
           ]
         }
