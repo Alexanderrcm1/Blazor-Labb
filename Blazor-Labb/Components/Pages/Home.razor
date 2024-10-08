@@ -1,7 +1,55 @@
 ﻿@page "/"
+@rendermode InteractiveServer
 
 <PageTitle>Home</PageTitle>
 
-<h1>Hello, world!</h1>
+<div id="home-page">
+	<h1>@title</h1>
+	<button @onclick="BtnClick">Press Me!</button>
+	<h5><em>Alexander Carlsson Musa</em></h5>
+</div>
 
-Welcome to your new app.
+@code
+{
+	string title = "";
+	string[] titleArray = ["B", "L", "A", "Z", "O", "R", " ", "L", "A", "B", "B"];
+
+
+	// VARJE GÅNG NÅGON KLICKAR PÅ KNAPPEN SKA 1 ELLER 2 BOKSTÄVER AV TITLE SYNAS PÅ RUTAN.
+	public void BtnClick()
+	{
+		
+	}
+}
+
+<style>
+	#home-page {
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+	#homepage, h1 {
+		font-family: 'Trebuchet MS';
+		font-weight: bold;
+		font-size: 100px;
+		margin-bottom: 100px;
+	}
+
+	#homepage, button {
+		width: 250px;
+		height: 75px;
+		font-size: 25px;
+		font-weight: bold;
+		border: none;
+		border-radius: 125px;
+		background-color: blue;
+		color: white;
+	}
+
+	#homepage, h5 {
+		font-size: 25px;
+		margin-top: 100px;
+	}
+</style>
+
