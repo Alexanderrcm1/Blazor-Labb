@@ -1,6 +1,106 @@
 ﻿@page "/newuser"
 @rendermode InteractiveServer
 
-@code {
+<div id="new-user-page">
+	<h1 id="page-title">@title</h1>
+	<div id="form-container">
+		<EditForm Model="user" OnValidSubmit="AddUser">
+			<div id="first-name-container" class="form-input">
+				<label for="first-name" id="first-name-label">First Name</label>
+				<InputText id="first-name" @bind-Value="user.FirstName"/>
+			</div>
 
+			<div id="last-name-container" class="form-input">
+				<label for="last-name" id="last-name-label">Last Name</label>
+				<InputText id="last-name" @bind-Value="user.LastName"/>
+			</div>
+
+			<div id="email-container" class="form-input">
+				<label for="email" id="email-label">Email</label>
+				<InputText id="email" @bind-Value="user.Email"/>
+			</div>
+
+			<div id="phone-container" class="form-input">
+				<label for="phone" id="phonelabel">Phone Number</label>
+				<InputText id="phone" @bind-Value="user.PhoneNr"/>
+			</div>
+
+			<button type="submit" id="form-btn">Submit</button>
+		</EditForm>
+	</div>
+</div>
+
+@code {
+	private User user = new User();
+	
+
+	string title = "Add a new user";
+
+	public class User
+	{
+		public string FirstName { get; set; }
+		public string LastName { get; set; }
+		public string Email { get; set; }
+		public string PhoneNr { get; set; }
+
+	}
+
+	public void AddUser()
+	{
+
+	}
 }
+
+<style>
+	#new-user-page {
+		display: grid;
+		grid-template-rows: 1fr 5fr;
+	}
+
+	#page-title {
+		justify-self: center;
+		font-family: 'Times New Roman', Times, serif;
+		font-weight: bold;
+		font-size: 62px;
+		justify-self: center;
+		align-self: center;
+	}
+
+	#form-container {
+		display: flex;
+		justify-content: center;
+
+	}
+	.form-input{
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: center;
+	}
+
+	.form-input {
+		margin: 20px;
+	}
+
+	#form-btn {
+		justify-self: center;
+		margin-left: 65px;
+		width: 120px;
+		height: 40px;
+		border: none;
+		border-radius: 20px;
+		background: limegreen;
+		color: white;
+		font-weight: bold;
+	}
+
+	#form-btn:hover {
+		width: 125px;
+		height: 41px;
+	}
+
+	label {
+		font-size: 18px;
+		font-weight: bold;
+	}
+</style>
