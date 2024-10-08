@@ -5,7 +5,10 @@
 
 <div id="home-page">
 	<h1>@title</h1>
-	<button @onclick="BtnClick">Press Me!</button>
+	@if (showBtn)
+	{
+		<button @onclick="BtnClick">Press Me!</button>
+	}
 	<h5><em>@name</em></h5>
 </div>
 
@@ -14,12 +17,14 @@
 	string title = "";
 	string name = "";
 	string[] titleArray = ["B", "L", "A", "Z", "O", "R", " ", "L", "A", "B", "B"];
+	bool showBtn = true;
 
 
 	public async Task BtnClick()
 	{
 		if (title == "")
 		{
+			showBtn = false;
 			foreach (var s in titleArray)
 			{
 				title += s;
