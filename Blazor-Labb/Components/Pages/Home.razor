@@ -6,19 +6,31 @@
 <div id="home-page">
 	<h1>@title</h1>
 	<button @onclick="BtnClick">Press Me!</button>
-	<h5><em>Alexander Carlsson Musa</em></h5>
+	<h5><em>@name</em></h5>
 </div>
 
 @code
 {
 	string title = "";
+	string name = "";
 	string[] titleArray = ["B", "L", "A", "Z", "O", "R", " ", "L", "A", "B", "B"];
 
 
-	// VARJE GÅNG NÅGON KLICKAR PÅ KNAPPEN SKA 1 ELLER 2 BOKSTÄVER AV TITLE SYNAS PÅ RUTAN.
-	public void BtnClick()
+	public async Task BtnClick()
 	{
-		
+		if (title == "")
+		{
+			foreach (var s in titleArray)
+			{
+				title += s;
+				StateHasChanged();
+				await Task.Delay(200);
+			}
+
+			await Task.Delay(1000);
+			name = "Alexander Carlsson Musa";
+		}
+
 	}
 }
 
@@ -34,6 +46,9 @@
 		font-weight: bold;
 		font-size: 100px;
 		margin-bottom: 100px;
+		background: linear-gradient(to right, #27296d, purple);
+		-webkit-background-clip: text;
+		-webkit-text-fill-color: transparent;
 	}
 
 	#homepage, button {
@@ -43,13 +58,23 @@
 		font-weight: bold;
 		border: none;
 		border-radius: 125px;
-		background-color: blue;
+		background-color: #27296d;
 		color: white;
+		
+	}
+
+	#homepage, button:hover {
+		width: 260px;
+		height: 80px;
+		background-color: purple;
+		color: white;
+
 	}
 
 	#homepage, h5 {
 		font-size: 25px;
 		margin-top: 100px;
+		font-weight: bold;
 	}
 </style>
 
