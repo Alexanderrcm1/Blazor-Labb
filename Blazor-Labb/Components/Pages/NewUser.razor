@@ -1,36 +1,37 @@
 ﻿@page "/newuser"
 @using System.ComponentModel.DataAnnotations
-@using System.Diagnostics.CodeAnalysis
 @rendermode InteractiveServer
 
 <div id="new-user-page">
-	<h1 id="page-title">@title</h1>
+	<h1 id="page-title">@_title</h1>
 
-	@if (formNotDone)
+	@if (_formNotDone)
 	{
 		<div id="form-container">
-			<EditForm Model="user" OnValidSubmit="AddUser">
+			<EditForm Model="_user" OnValidSubmit="AddUser">
 				<DataAnnotationsValidator />
 				<div id="first-name-container" class="form-input">
 					<label for="first-name" id="first-name-label">First Name</label>
-					<InputText id="first-name" @bind-Value="user.FirstName"/>
-					<ValidationMessage For="() => user.FirstName" />
+					<InputText id="first-name" @bind-Value="_user.FirstName"/>
+					<ValidationMessage For="() => _user.FirstName" />
 				</div>
 
 				<div id="last-name-container" class="form-input">
 					<label for="last-name" id="last-name-label">Last Name</label>
-					<InputText id="last-name" @bind-Value="user.LastName"/>
+					<InputText id="last-name" @bind-Value="_user.LastName"/>
+					<ValidationMessage For="() => _user.LastName"/>
 				</div>
 
 				<div id="email-container" class="form-input">
 					<label for="email" id="email-label">Email</label>
-					<InputText id="email" @bind-Value="user.Email"/>
+					<InputText id="email" @bind-Value="_user.Email"/>
+					<ValidationMessage  For="() => _user.Email"/>
 				</div>
 
 				<div id="age-container" class="form-input">
 					<label for="age" id="phonelabel">Age</label>
-					<InputNumber id="age" @bind-Value="user.Age" />
-					<ValidationMessage For="() => user.Age" />
+					<InputNumber id="age" @bind-Value="_user.Age" />
+					<ValidationMessage For="() => _user.Age" />
 				</div>
 
 				<button type="submit" id="form-btn">Submit</button>
@@ -40,48 +41,50 @@
 	else
 	{
 		<div id="form-result-container">
-			<p class="result">First Name: @user.FirstName</p>
-			<p class="result">Last Name: @user.LastName</p>
-			<p class="result">Email: @user.Email</p>
-			<p class="result">Age: @user.Age</p>
+			<p class="result">First Name: @_user.FirstName</p>
+			<p class="result">Last Name: @_user.LastName</p>
+			<p class="result">Email: @_user.Email</p>
+			<p class="result">Age: @_user.Age</p>
 			<button id="new-user-btn" @onclick="AddNewUser">New User</button>
 		</div>
 	}
 </div>
 
-@code {
-	private User user = new User();
-
-	string title = "Add a new user";
-	bool formNotDone = true;
+@code 
+{
+	private User _user = new User();
+	private string _title = "Add a new user";
+	private bool _formNotDone = true;
+	private string _emailRegex = @"^[a-zA-Z0-9._%+-]{3,}@[a-zA-Z0-9.-]{3,}\.[a-zA-Z]{2,3}$";
 
 	public class User
 	{
 		[Required]
+		[RegularExpression(@"^[a-zA-Z]+(-[a-zA-Z]+)*$", ErrorMessage = "First name contains invalid characters")]
 		public string? FirstName { get; set; }
 		[Required]
+		[RegularExpression(@"^[a-zA-Z]+(-[a-zA-Z]+)*$", ErrorMessage = "Last name contains invalid characters")]
 		public string? LastName { get; set; }
 		[Required]
+		[RegularExpression(@"^[a-zA-Z0-9._%+-]{3,}@[a-zA-Z0-9.-]{3,}\.[a-zA-Z]{2,3}$", ErrorMessage = "Incorrect Email.")]
 		public string? Email { get; set; }
-		[Range(18, 65)]
-		public int Age { get; set; }
-
+		[Range(18, 65)] public int Age { get; set; }
 	}
 
 	public void AddUser()
 	{
-		formNotDone = false;
-		title = "Form submitted!";
+		_formNotDone = false;
+		_title = "Form submitted!";
 	}
 
 	public void AddNewUser()
 	{
-		formNotDone = true;
-		title = "Add a new user";
-		user.FirstName = "";
-		user.LastName = "";
-		user.Email = "";
-		user.Age = 0;
+		_formNotDone = true;
+		_title = "Add a new user";
+		_user.FirstName = "";
+		_user.LastName = "";
+		_user.Email = "";
+		_user.Age = 0;
 	}
 }
 
