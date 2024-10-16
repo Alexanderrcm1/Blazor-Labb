@@ -3,4 +3,54 @@
 
 @code {
 
+	public class NewUser
+	{
+		public UserInfo userInfo { get; set; }
+		public UserAdress userAdress { get; set; }
+		public UserCompany userCompany { get; set; }
+
+		public NewUser()
+		{
+			userInfo = new UserInfo();
+			userAdress = new UserAdress();
+			userCompany = new UserCompany();
+		}
+		public List<NewUser> GetUsers()
+		{
+			List<NewUser> users = new List<NewUser>();
+			CreateUserList(users);
+			return users;
+		}
+
+		public void CreateUserList(List<NewUser> users)
+		{
+
+			string[] names =
+			{
+				"Alexander", "Emma", "Olivia", "Elias", "Noah", "Ava", "Jonas", "Bengt", "Charlie", "Elsa", "Maja", "Gustav", "karl", "Maja", "Hugo"
+			};
+
+			string[] cities = {"Stockholm", "Göteborg", "Malmö"};
+		string[] streets = {"Sveavägen", "Avenyn", "Kungsgatan"};
+			string[] zipcodes = {"143 23", "103 43", "195 89"};
+			string[] companys = {"Apple", "Microsoft", "Tesla"};
+			string[] catchphrases = {"Think Different", "Empowering us all", "Accelerating the world's transition to sustainable energy"};
+
+			for (int i = 0; i < 15; i++)
+			{
+
+				int index = i % cities.Length;
+
+				NewUser user = new NewUser
+					{
+						userInfo = { Name = names[i], Id = i + 1, Email = $"{names[i]}{i + 1}@{companys[index]}.com" },
+						userAdress = new UserAdress() { City = cities[index], Street = streets[index], Zipcode = zipcodes[index] },
+						userCompany = new UserCompany() { CompanyName = companys[index], Catchphrase = catchphrases[index] },
+					};
+				users.Add(user);
+			}
+
+		}
+	}
+
 }
