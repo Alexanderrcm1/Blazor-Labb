@@ -1,37 +1,81 @@
 ﻿@page "/users"
+@rendermode InteractiveServer
 
+<div id="users-page">
+	<h1>Users</h1>
+	<div id="table-container">
+		@if (users == null || !users.Any())
+		{
+			<p>Loading...</p>
+		}
+		else
+		{
+			<table>
+				<tr>
+					<th>ID</th>
+					<th>Name</th>
+					<th>Email</th>
+					<th>Adress</th>
+					<th>Company</th>
+
+				</tr>
+				@foreach (var u in users)
+				{
+					<tr>
+						<td>@u.userInfo.Id</td>
+						<td>@u.userInfo.Name</td>
+						<td>@u.userInfo.Email</td>
+						<td>@u.userAdress.Street<br/> @u.userAdress.City, @u.userAdress.Zipcode </td>
+						<td>@u.userCompany.CompanyName - <em>"@u.userCompany.Catchphrase"</em></td>
+					</tr>
+				}
+			</table>
+		}
+	</div>
+</div>
 
 @code {
 
-	public class NewUser
+	List<User> users;
+
+	protected override async Task OnInitializedAsync()
+	{
+		await Task.Delay(2000);
+		User newUser = new User();
+		users = newUser.GetUsers().SortOnName();
+
+
+	}
+
+	public class User
 	{
 		public UserInfo userInfo { get; set; }
 		public UserAdress userAdress { get; set; }
 		public UserCompany userCompany { get; set; }
 
-		public NewUser()
+		public User()
 		{
 			userInfo = new UserInfo();
 			userAdress = new UserAdress();
 			userCompany = new UserCompany();
 		}
-		public List<NewUser> GetUsers()
+		public List<User> GetUsers()
 		{
-			List<NewUser> users = new List<NewUser>();
+			List<User> users = new List<User>();
 			CreateUserList(users);
 			return users;
 		}
 
-		public void CreateUserList(List<NewUser> users)
+		public void CreateUserList(List<User> users)
 		{
 
 			string[] names =
 			{
-				"Alexander", "Emma", "Olivia", "Elias", "Noah", "Ava", "Jonas", "Bengt", "Charlie", "Elsa", "Maja", "Gustav", "karl", "Maja", "Hugo"
-			};
+				"Alexander", "Emma", "Olivia", "Elias", "Noah", "Ava", "Jonas", "Bengt", "Charlie", "Elsa", "Maja", "Gustav", "Karl", "Maja", "Hugo"
+		};
 
 			string[] cities = {"Stockholm", "Göteborg", "Malmö"};
-		string[] streets = {"Sveavägen", "Avenyn", "Kungsgatan"};
+			string[] streets = {"Sveavägen", "Avenyn", "Kungsgatan"};
 			string[] zipcodes = {"143 23", "103 43", "195 89"};
 			string[] companys = {"Apple", "Microsoft", "Tesla"};
 			string[] catchphrases = {"Think Different", "Empowering us all", "Accelerating the world's transition to sustainable energy"};
@@ -41,7 +85,7 @@
 
 				int index = i % cities.Length;
 
-				NewUser user = new NewUser
+				User user = new User
 					{
 						userInfo = { Name = names[i], Id = i + 1, Email = $"{names[i]}{i + 1}@{companys[index]}.com" },
 						userAdress = new UserAdress() { City = cities[index], Street = streets[index], Zipcode = zipcodes[index] },
@@ -53,4 +97,20 @@
 		}
 	}
 
+
 }
+<style>
+	#users-page {
+		display: flex;
+		flex-direction: column;
+	}
+	
+	#table-container {
+		display: grid;
+	}
+
+	h1 {
+		align-self: center;
+		margin: 10px;
+	}
+</style>
