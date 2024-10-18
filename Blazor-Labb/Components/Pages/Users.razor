@@ -12,6 +12,8 @@
 		}
 		else
 		{
+			<button id ="amount-btn" @onclick="showAmount">@amountBtn</button>
+			<button id ="name-sort-btn" @onclick="nameSort">@nameSortBtn</button>
 			<table>
 				<tr>
 					<th>ID</th>
@@ -38,13 +40,52 @@
 
 @code {
 
+	public void nameSort()
+	{
+		nameSortIsDescending = !nameSortIsDescending;
+
+		if (nameSortIsDescending)
+		{
+			users = users.SortOnName();
+		}
+		else
+		{
+			users = users.SortOnNameDesc();
+		}
+
+		StateHasChanged();
+	}
+
+	public async Task showAmount()
+	{
+		showingAll = !showingAll;
+
+		if (showingAll)
+		{
+			users = await users.ShowAll();
+			amountBtn = "Show 5";
+		}
+		else
+		{
+			users =  users.ShowFew();
+			amountBtn = "Show All";
+		}
+
+		StateHasChanged();
+	}
+
 	List<IUser> users;
+	bool showingAll = false;
+	bool nameSortIsDescending = false;
+	string amountBtn = "Show All";
+	string nameSortBtn = "Sort On Name";
 
 	protected override async Task OnInitializedAsync()
 	{
 		await Task.Delay(2000);
-		IUser newUser = new ApiUser();
-		users = await newUser.GetUsers();
+		IUser newUser = new MyUser();
+		users = await newUser.GetUsersAsync();
+		users = users.ShowFew();
 	}
 
 	public interface IUser
@@ -55,7 +96,7 @@
 		public Address Address { get; set; }
 		public Company Company { get; set; }
 
-		Task<List<IUser>> GetUsers();
+		Task<List<IUser>> GetUsersAsync();
 	}
 
 	public class ApiUser : IUser
@@ -75,7 +116,7 @@
 			Company = new Company();
 		}
 
-		public async Task<List<IUser>> GetUsers()
+		public async Task<List<IUser>> GetUsersAsync()
 		{
 			List<IUser> users = new List<IUser>();
 			await CreateUserListAsync(users);
@@ -114,7 +155,7 @@
 			Address = new Address();
 			Company = new Company();
 		}
-		public async Task<List<IUser>> GetUsers()
+		public async Task<List<IUser>> GetUsersAsync()
 		{
 			List<IUser> users = new List<IUser>();
 			CreateUserList(users);
@@ -127,7 +168,7 @@
 			string[] names =
 			{
 				"Alexander Hansson", "Emma Carlsson", "Olivia Jonsson", "Elias Svensson", "Noah Eriksson", "Ava Avasson", "Jonas Jonasson", "Bengt Bengtsson", "Charlie Charlsson", "Elsa Elsson", "Maja Majsson", "Gustav Gusson", "Karl Karlsson", "Erika Eriksson", "Hugo Hugsson"
-		};
+	};
 
 			string[] cities = {"Stockholm", "Göteborg", "Malmö"};
 			string[] streets = {"Sveavägen", "Avenyn", "Kungsgatan"};
@@ -142,9 +183,9 @@
 
 				MyUser user = new MyUser
 					{
-						Name = names[i],
-						Id = i + 1,
-						Email = $"{names[i]}{i + 1}@{companys[index]}.com",
+						 Name = names[i],
+						 Id = i + 1,
+						 Email = $"{names[i]}{i + 1}@{companys[index]}.com",
 						Address = new Address() { City = cities[index], Street = streets[index], Zipcode = zipcodes[index] },
 						Company = new Company() { Name = companys[index], Catchphrase = catchphrases[index] },
 					};

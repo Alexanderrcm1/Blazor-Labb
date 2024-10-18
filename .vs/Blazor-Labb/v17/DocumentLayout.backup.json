@@ -42,8 +42,22 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 5,
+          "SelectedChildIndex": 0,
           "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Users.razor",
+              "DocumentMoniker": "C:\\Users\\acarl\\Desktop\\ITHS\\Programmering C#\\Blazor-Labb\\Blazor-Labb\\Components\\Pages\\Users.razor",
+              "RelativeDocumentMoniker": "Blazor-Labb\\Components\\Pages\\Users.razor",
+              "ToolTip": "C:\\Users\\acarl\\Desktop\\ITHS\\Programmering C#\\Blazor-Labb\\Blazor-Labb\\Components\\Pages\\Users.razor",
+              "RelativeToolTip": "Blazor-Labb\\Components\\Pages\\Users.razor",
+              "ViewState": "AgIAABgAAAAAAAAAAAAAADcAAAAUAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-10-08T09:05:38.134Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
             {
               "$type": "Bookmark",
               "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
@@ -66,26 +80,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
-              "Title": "Users.razor",
-              "DocumentMoniker": "C:\\Users\\acarl\\Desktop\\ITHS\\Programmering C#\\Blazor-Labb\\Blazor-Labb\\Components\\Pages\\Users.razor",
-              "RelativeDocumentMoniker": "Blazor-Labb\\Components\\Pages\\Users.razor",
-              "ToolTip": "C:\\Users\\acarl\\Desktop\\ITHS\\Programmering C#\\Blazor-Labb\\Blazor-Labb\\Components\\Pages\\Users.razor",
-              "RelativeToolTip": "Blazor-Labb\\Components\\Pages\\Users.razor",
-              "ViewState": "AgIAABIAAAAAAAAAAAAAAC0AAAAdAAAAAAAAAA==",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-08T09:05:38.134Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
               "DocumentIndex": 1,
               "Title": "UserExtensions.cs",
               "DocumentMoniker": "C:\\Users\\acarl\\Desktop\\ITHS\\Programmering C#\\Blazor-Labb\\Blazor-Labb\\UserExtensions.cs",
               "RelativeDocumentMoniker": "Blazor-Labb\\UserExtensions.cs",
               "ToolTip": "C:\\Users\\acarl\\Desktop\\ITHS\\Programmering C#\\Blazor-Labb\\Blazor-Labb\\UserExtensions.cs",
               "RelativeToolTip": "Blazor-Labb\\UserExtensions.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAPAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAYAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-16T11:56:24.445Z",
               "EditorCaption": ""
@@ -113,8 +114,7 @@
               "RelativeToolTip": "Blazor-Labb\\Address.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAgAAAABAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T11:06:09.336Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-16T11:06:09.336Z"
             },
             {
               "$type": "Document",
@@ -126,8 +126,7 @@
               "RelativeToolTip": "Blazor-Labb\\Company.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T09:17:15.35Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-16T09:17:15.35Z"
             },
             {
               "$type": "Document",
@@ -139,8 +138,7 @@
               "RelativeToolTip": "Blazor-Labb\\Components\\Pages\\NewUser.razor",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAADoAAAASAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-08T09:04:40.124Z",
-              "EditorCaption": ""
+              "WhenOpened": "2024-10-08T09:04:40.124Z"
             },
             {
               "$type": "Document",
