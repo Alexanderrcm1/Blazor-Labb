@@ -1,6 +1,6 @@
 ﻿namespace Blazor_Labb;
 
-public class UserInfo
+public class Info
 {
 	public int Id { get; set; }
 	public string Name { get; set; }

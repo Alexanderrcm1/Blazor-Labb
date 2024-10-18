@@ -1,4 +1,6 @@
 ﻿@page "/users"
+@using System.Text.Json
+@using Microsoft.AspNetCore.Mvc.Rendering
 @rendermode InteractiveServer
 
 <div id="users-page">
@@ -19,14 +21,14 @@
 					<th>Company</th>
 
 				</tr>
-				@foreach (var u in users)
+				@foreach (var user in users)
 				{
 					<tr>
-						<td>@u.userInfo.Id</td>
-						<td>@u.userInfo.Name</td>
-						<td>@u.userInfo.Email</td>
-						<td>@u.userAdress.Street<br/> @u.userAdress.City, @u.userAdress.Zipcode </td>
-						<td>@u.userCompany.CompanyName - <em>"@u.userCompany.Catchphrase"</em></td>
+						<td>@user.Id</td>
+						<td>@user.Name</td>
+						<td>@user.Email</td>
+						<td>@user.Address.Street<br /> @user.Address.City, @user.Address.Zipcode </td>
+						<td>@user.Company.Name - <em>"@user.Company.Catchphrase"</em></td>
 					</tr>
 				}
 			</table>
@@ -36,42 +38,95 @@
 
 @code {
 
-	List<User> users;
+	List<IUser> users;
 
 	protected override async Task OnInitializedAsync()
 	{
 		await Task.Delay(2000);
-		User newUser = new User();
-		users = newUser.GetUsers().SortOnName();
+		IUser newUser = new ApiUser();
+		users = await newUser.GetUsers();
+	}
 
+	public interface IUser
+	{
+		public string Name { get; set; }
+		public string Email { get; set; }
+		public int Id { get; set; }
+		public Address Address { get; set; }
+		public Company Company { get; set; }
+
+		Task<List<IUser>> GetUsers();
+	}
+
+	public class ApiUser : IUser
+	{
+		string jsonString;
+
+		public string Name { get; set; }
+		public string Email { get; set; }
+		public int Id { get; set; }
+		public Address Address { get; set; }
+		public Company Company { get; set; }
+
+
+		public ApiUser()
+		{
+			Address = new Address();
+			Company = new Company();
+		}
+
+		public async Task<List<IUser>> GetUsers()
+		{
+			List<IUser> users = new List<IUser>();
+			await CreateUserListAsync(users);
+			return users;
+		}
+
+		public async Task CreateUserListAsync(List<IUser> users)
+		{
+			jsonString = await GetJson();
+			var apiUsers = JsonSerializer.Deserialize<List<ApiUser>>(jsonString, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+			users.AddRange(apiUsers);
+		}
+
+		public async Task<string> GetJson()
+		{
+			string url = "https://jsonplaceholder.typicode.com/users";
+			using HttpClient client = new HttpClient();
+			jsonString = await client.GetStringAsync(url);
+
+			Console.WriteLine(jsonString);
+			return jsonString;
+		}
 
 	}
 
-	public class User
+	public class MyUser : IUser
 	{
-		public UserInfo userInfo { get; set; }
-		public UserAdress userAdress { get; set; }
-		public UserCompany userCompany { get; set; }
+		public string Name { get; set; }
+		public string Email { get; set; }
+		public int Id { get; set; }
+		public Address Address { get; set; }
+		public Company Company { get; set; }
 
-		public User()
+		public MyUser()
 		{
-			userInfo = new UserInfo();
-			userAdress = new UserAdress();
-			userCompany = new UserCompany();
+			Address = new Address();
+			Company = new Company();
 		}
-		public List<User> GetUsers()
+		public async Task<List<IUser>> GetUsers()
 		{
-			List<User> users = new List<User>();
+			List<IUser> users = new List<IUser>();
 			CreateUserList(users);
 			return users;
 		}
 
-		public void CreateUserList(List<User> users)
+		public void CreateUserList(List<IUser> users)
 		{
 
 			string[] names =
 			{
-				"Alexander", "Emma", "Olivia", "Elias", "Noah", "Ava", "Jonas", "Bengt", "Charlie", "Elsa", "Maja", "Gustav", "Karl", "Maja", "Hugo"
+				"Alexander Hansson", "Emma Carlsson", "Olivia Jonsson", "Elias Svensson", "Noah Eriksson", "Ava Avasson", "Jonas Jonasson", "Bengt Bengtsson", "Charlie Charlsson", "Elsa Elsson", "Maja Majsson", "Gustav Gusson", "Karl Karlsson", "Erika Eriksson", "Hugo Hugsson"
 		};
 
 			string[] cities = {"Stockholm", "Göteborg", "Malmö"};
@@ -85,18 +140,19 @@
 
 				int index = i % cities.Length;
 
-				User user = new User
+				MyUser user = new MyUser
 					{
-						userInfo = { Name = names[i], Id = i + 1, Email = $"{names[i]}{i + 1}@{companys[index]}.com" },
-						userAdress = new UserAdress() { City = cities[index], Street = streets[index], Zipcode = zipcodes[index] },
-						userCompany = new UserCompany() { CompanyName = companys[index], Catchphrase = catchphrases[index] },
+						Name = names[i],
+						Id = i + 1,
+						Email = $"{names[i]}{i + 1}@{companys[index]}.com",
+						Address = new Address() { City = cities[index], Street = streets[index], Zipcode = zipcodes[index] },
+						Company = new Company() { Name = companys[index], Catchphrase = catchphrases[index] },
 					};
 				users.Add(user);
 			}
 
 		}
 	}
-
 
 }
 <style>
@@ -112,5 +168,13 @@
 	h1 {
 		align-self: center;
 		margin: 10px;
+	}
+
+	table, td, th {
+		padding: 0 20px 0 20px;
+	}
+
+	tr {
+		border: 1px solid black;
 	}
 </style>

@@ -4,11 +4,11 @@ namespace Blazor_Labb;
 
 public static class UserExtensions
 {
-	public static List<Users.User> SortOnName(this List<Users.User> users)
+	public static List<Users.IUser> SortOnName(this List<Users.IUser> users)
 	{
-		IEnumerable<Users.User> query =
+		IEnumerable<Users.IUser> query =
 			from user in users
-			orderby user.userInfo.Name[0]
+			orderby user.Name[0]
 			select user;
 
 		return query.ToList();

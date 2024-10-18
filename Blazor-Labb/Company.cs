@@ -1,7 +1,7 @@
 ﻿namespace Blazor_Labb;
 
-public class UserCompany
+public class Company
 {
-	 	public string CompanyName { get; set; }
+	 	public string Name { get; set; }
 	 	public string Catchphrase { get; set; }
 }
