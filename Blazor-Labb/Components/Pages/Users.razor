@@ -4,41 +4,102 @@
 @rendermode InteractiveServer
 
 <div id="users-page">
-	<h1>Users</h1>
-	<div id="table-container">
-		@if (users == null || !users.Any())
-		{
-			<p>Loading...</p>
-		}
-		else
-		{
-			<button id ="amount-btn" @onclick="showAmount">@amountBtn</button>
-			<button id ="name-sort-btn" @onclick="nameSort">@nameSortBtn</button>
-			<table>
-				<tr>
-					<th>ID</th>
-					<th>Name</th>
-					<th>Email</th>
-					<th>Adress</th>
-					<th>Company</th>
-
-				</tr>
-				@foreach (var user in users)
-				{
+	@if (userChooser == 0)
+	{
+		<h1>Choose Users</h1>
+		<div id="choose-container">
+			<button id="api-users-btn" class="choose-btn" @onclick="showApiUsers">Show Api Users</button>
+			<button id="my-users-btn" class="choose-btn" @onclick="showMyUsers">Show Dummy Users</button>
+		</div>
+	}
+	else
+	{
+		<h1>Users</h1>
+		<div id="table-container">
+			@if (users == null || !users.Any())
+			{
+				<p>Loading...</p>
+			}
+			else
+			{
+				<div class="buttons-search-container">
+					<div class="buttons-container">
+						<button id="amount-btn" class="sorting-btn" @onclick="showAmount">@amountBtn</button>
+						<button id="name-sort-btn" class="sorting-btn" @onclick="nameSort">@nameSortBtn</button>
+						<button id="id-sort-btn" class="sorting-btn" @onclick="idSort">@idSortBtn</button>
+					</div>
+					<div class="search-container">
+						<input @bind="search"/>
+						<button id="search-btn" @onclick="searchUser">Search</button>
+					</div>
+				</div>
+				<table>
 					<tr>
-						<td>@user.Id</td>
-						<td>@user.Name</td>
-						<td>@user.Email</td>
-						<td>@user.Address.Street<br /> @user.Address.City, @user.Address.Zipcode </td>
-						<td>@user.Company.Name - <em>"@user.Company.Catchphrase"</em></td>
+						<th>ID</th>
+						<th>Name</th>
+						<th>Email</th>
+						<th>Adress</th>
+						<th>Company</th>
+
 					</tr>
-				}
-			</table>
-		}
-	</div>
+					@foreach (var user in users)
+					{
+						<tr>
+							<td>@user.Id</td>
+							<td>@user.Name</td>
+							<td>@user.Email</td>
+							<td>@user.Address.Street<br /> @user.Address.City, @user.Address.Zipcode </td>
+							<td>@user.Company.Name - <em>"@user.Company.Catchphrase"</em></td>
+						</tr>
+					}
+				</table>
+			}
+		</div>	
+	}
 </div>
 
 @code {
+
+	public async void showApiUsers()
+	{
+		userChooser = 2;
+		await LoadUsers();
+	}
+	public async void showMyUsers()
+	{
+		userChooser = 1;
+		await LoadUsers();
+	}
+
+	public async void searchUser()
+	{
+		if (string.IsNullOrWhiteSpace(search))
+		{
+			users = await users.ShowAll(userChooser);
+
+		}
+		users = await users.SearchForUser(search, userChooser);
+		search = "";
+		showingAll = false;
+		amountBtn = "Show All";
+		StateHasChanged();
+	}
+
+	public void idSort()
+	{
+		idSortIsDescending = !idSortIsDescending;
+
+		if (idSortIsDescending)
+		{
+			users = users.SortOnId();
+		}
+		else
+		{
+			users = users.SortOnIdDesc();
+		}
+
+		StateHasChanged();
+	}
 
 	public void nameSort()
 	{
@@ -62,7 +123,7 @@
 
 		if (showingAll)
 		{
-			users = await users.ShowAll();
+			users = await users.ShowAll(userChooser);
 			amountBtn = "Show 5";
 		}
 		else
@@ -74,18 +135,39 @@
 		StateHasChanged();
 	}
 
+	public async Task<IUser> ChooseUser()
+	{
+		switch (userChooser)
+		{
+			case 1:
+				return new MyUser();
+			case 2:
+				return new ApiUser();
+		}
+
+		return new MyUser();
+	}
+
+	public async Task LoadUsers()
+	{
+		IUser newUser = await ChooseUser();
+		users = await newUser.GetUsersAsync();
+		users = users.ShowFew();
+	}
+
 	List<IUser> users;
 	bool showingAll = false;
 	bool nameSortIsDescending = false;
+	bool idSortIsDescending = false;
 	string amountBtn = "Show All";
 	string nameSortBtn = "Sort On Name";
+	string idSortBtn = "Sort On ID";
+	string search = "";
+	int userChooser = 0;
 
 	protected override async Task OnInitializedAsync()
 	{
 		await Task.Delay(2000);
-		IUser newUser = new MyUser();
-		users = await newUser.GetUsersAsync();
-		users = users.ShowFew();
 	}
 
 	public interface IUser
@@ -208,7 +290,10 @@
 
 	h1 {
 		align-self: center;
-		margin: 10px;
+		margin-bottom: 50px;
+		font-size: 50px;
+		font-weight: bold;
+		font-family: cursive;
 	}
 
 	table, td, th {
@@ -217,5 +302,62 @@
 
 	tr {
 		border: 1px solid black;
+	}
+	#choose-container {
+		display: flex;
+		flex-direction: row;
+		justify-content: center;
+	}
+
+	.choose-btn {
+		width: 200px;
+		height: 100px;
+		margin: 50px;
+		border: none;
+		border-radius: 20px;
+		font-weight: bold;
+		background-color: #27296d;
+		color: white;
+	}
+	.buttons-search-container {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+		margin-bottom: 10px;
+	
+	}
+
+	.buttons-container {
+		display: grid;
+		grid-template-columns: 1fr 1fr 1fr;
+		gap: 20px;
+	}
+
+	.sorting-btn {
+		border: none;
+		border-radius: 10px;
+		width: auto;
+		height: 35px;
+		background-color: #27296d;
+		color: white;
+		font-weight: bold;
+	}
+
+	.sorting-btn:hover {
+		background-color: purple;
+		color: white;
+	}
+
+	#search-btn {
+		border: none;
+		width: 100px;
+		height: 30px;
+		background-color: #27296d;
+		color: white;
+		font-weight: bold;
+	}
+
+	#search-btn:hover {
+		background-color: purple;
 	}
 </style>

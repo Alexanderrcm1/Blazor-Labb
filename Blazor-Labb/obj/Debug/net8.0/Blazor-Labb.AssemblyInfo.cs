@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("Blazor-Labb")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5ec4f7ab4f3a6654179570134cfa027e8240ef0d")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+d126f2a89675b32675006b975d8398cafccb4b9b")]
 [assembly: System.Reflection.AssemblyProductAttribute("Blazor-Labb")]
 [assembly: System.Reflection.AssemblyTitleAttribute("Blazor-Labb")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

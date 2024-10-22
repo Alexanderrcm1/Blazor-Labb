@@ -7,8 +7,20 @@
       "RelativeMoniker": "D:0:0:{2D150BFA-60A7-407E-9559-D1DDFAFBF306}|Blazor-Labb\\Blazor-Labb.csproj|solutionrelative:blazor-labb\\components\\pages\\users.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
+      "AbsoluteMoniker": "D:0:0:{2D150BFA-60A7-407E-9559-D1DDFAFBF306}|Blazor-Labb\\Blazor-Labb.csproj|c:\\users\\acarl\\desktop\\iths\\programmering c#\\blazor-labb\\blazor-labb\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2D150BFA-60A7-407E-9559-D1DDFAFBF306}|Blazor-Labb\\Blazor-Labb.csproj|solutionrelative:blazor-labb\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{2D150BFA-60A7-407E-9559-D1DDFAFBF306}|Blazor-Labb\\Blazor-Labb.csproj|c:\\users\\acarl\\desktop\\iths\\programmering c#\\blazor-labb\\blazor-labb\\userextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{2D150BFA-60A7-407E-9559-D1DDFAFBF306}|Blazor-Labb\\Blazor-Labb.csproj|solutionrelative:blazor-labb\\userextensions.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D150BFA-60A7-407E-9559-D1DDFAFBF306}|Blazor-Labb\\Blazor-Labb.csproj|c:\\users\\acarl\\desktop\\iths\\programmering c#\\blazor-labb\\blazor-labb\\components\\pages\\newuser.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{2D150BFA-60A7-407E-9559-D1DDFAFBF306}|Blazor-Labb\\Blazor-Labb.csproj|solutionrelative:blazor-labb\\components\\pages\\newuser.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{2D150BFA-60A7-407E-9559-D1DDFAFBF306}|Blazor-Labb\\Blazor-Labb.csproj|c:\\users\\acarl\\desktop\\iths\\programmering c#\\blazor-labb\\blazor-labb\\company.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{2D150BFA-60A7-407E-9559-D1DDFAFBF306}|Blazor-Labb\\Blazor-Labb.csproj|solutionrelative:blazor-labb\\company.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{2D150BFA-60A7-407E-9559-D1DDFAFBF306}|Blazor-Labb\\Blazor-Labb.csproj|c:\\users\\acarl\\desktop\\iths\\programmering c#\\blazor-labb\\blazor-labb\\info.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -19,20 +31,8 @@
       "RelativeMoniker": "D:0:0:{2D150BFA-60A7-407E-9559-D1DDFAFBF306}|Blazor-Labb\\Blazor-Labb.csproj|solutionrelative:blazor-labb\\address.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{2D150BFA-60A7-407E-9559-D1DDFAFBF306}|Blazor-Labb\\Blazor-Labb.csproj|c:\\users\\acarl\\desktop\\iths\\programmering c#\\blazor-labb\\blazor-labb\\company.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{2D150BFA-60A7-407E-9559-D1DDFAFBF306}|Blazor-Labb\\Blazor-Labb.csproj|solutionrelative:blazor-labb\\company.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2D150BFA-60A7-407E-9559-D1DDFAFBF306}|Blazor-Labb\\Blazor-Labb.csproj|c:\\users\\acarl\\desktop\\iths\\programmering c#\\blazor-labb\\blazor-labb\\components\\pages\\newuser.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{2D150BFA-60A7-407E-9559-D1DDFAFBF306}|Blazor-Labb\\Blazor-Labb.csproj|solutionrelative:blazor-labb\\components\\pages\\newuser.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{2D150BFA-60A7-407E-9559-D1DDFAFBF306}|Blazor-Labb\\Blazor-Labb.csproj|c:\\users\\acarl\\desktop\\iths\\programmering c#\\blazor-labb\\blazor-labb\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{2D150BFA-60A7-407E-9559-D1DDFAFBF306}|Blazor-Labb\\Blazor-Labb.csproj|solutionrelative:blazor-labb\\components\\layout\\navmenu.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{2D150BFA-60A7-407E-9559-D1DDFAFBF306}|Blazor-Labb\\Blazor-Labb.csproj|c:\\users\\acarl\\desktop\\iths\\programmering c#\\blazor-labb\\blazor-labb\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}",
-      "RelativeMoniker": "D:0:0:{2D150BFA-60A7-407E-9559-D1DDFAFBF306}|Blazor-Labb\\Blazor-Labb.csproj|solutionrelative:blazor-labb\\components\\pages\\home.razor||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     }
   ],
   "DocumentGroupContainers": [
@@ -72,7 +72,7 @@
               "RelativeDocumentMoniker": "Blazor-Labb\\Components\\Pages\\Users.razor",
               "ToolTip": "C:\\Users\\acarl\\Desktop\\ITHS\\Programmering C#\\Blazor-Labb\\Blazor-Labb\\Components\\Pages\\Users.razor",
               "RelativeToolTip": "Blazor-Labb\\Components\\Pages\\Users.razor",
-              "ViewState": "AgIAAB4AAAAAAAAAAAAAABQAAAATAAAAAAAAAA==",
+              "ViewState": "AgIAANYAAAAAAAAAAAAWwN8AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-10-08T09:05:38.134Z",
               "IsPinned": true,
@@ -80,20 +80,20 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "UserExtensions.cs",
               "DocumentMoniker": "C:\\Users\\acarl\\Desktop\\ITHS\\Programmering C#\\Blazor-Labb\\Blazor-Labb\\UserExtensions.cs",
               "RelativeDocumentMoniker": "Blazor-Labb\\UserExtensions.cs",
               "ToolTip": "C:\\Users\\acarl\\Desktop\\ITHS\\Programmering C#\\Blazor-Labb\\Blazor-Labb\\UserExtensions.cs",
               "RelativeToolTip": "Blazor-Labb\\UserExtensions.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAYAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAB4AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-10-16T11:56:24.445Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "Info.cs",
               "DocumentMoniker": "C:\\Users\\acarl\\Desktop\\ITHS\\Programmering C#\\Blazor-Labb\\Blazor-Labb\\Info.cs",
               "RelativeDocumentMoniker": "Blazor-Labb\\Info.cs",
@@ -106,7 +106,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "Address.cs",
               "DocumentMoniker": "C:\\Users\\acarl\\Desktop\\ITHS\\Programmering C#\\Blazor-Labb\\Blazor-Labb\\Address.cs",
               "RelativeDocumentMoniker": "Blazor-Labb\\Address.cs",
@@ -126,23 +126,25 @@
               "RelativeToolTip": "Blazor-Labb\\Company.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAAAIAAAANAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-10-16T09:17:15.35Z"
+              "WhenOpened": "2024-10-16T09:17:15.35Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 3,
               "Title": "NewUser.razor",
               "DocumentMoniker": "C:\\Users\\acarl\\Desktop\\ITHS\\Programmering C#\\Blazor-Labb\\Blazor-Labb\\Components\\Pages\\NewUser.razor",
               "RelativeDocumentMoniker": "Blazor-Labb\\Components\\Pages\\NewUser.razor",
               "ToolTip": "C:\\Users\\acarl\\Desktop\\ITHS\\Programmering C#\\Blazor-Labb\\Blazor-Labb\\Components\\Pages\\NewUser.razor",
               "RelativeToolTip": "Blazor-Labb\\Components\\Pages\\NewUser.razor",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAADoAAAASAAAAAAAAAA==",
+              "ViewState": "AgIAAEgAAAAAAAAAAAAAAGEAAAAOAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-08T09:04:40.124Z"
+              "WhenOpened": "2024-10-08T09:04:40.124Z",
+              "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 7,
               "Title": "NavMenu.razor",
               "DocumentMoniker": "C:\\Users\\acarl\\Desktop\\ITHS\\Programmering C#\\Blazor-Labb\\Blazor-Labb\\Components\\Layout\\NavMenu.razor",
               "RelativeDocumentMoniker": "Blazor-Labb\\Components\\Layout\\NavMenu.razor",
@@ -154,15 +156,16 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 1,
               "Title": "Home.razor",
               "DocumentMoniker": "C:\\Users\\acarl\\Desktop\\ITHS\\Programmering C#\\Blazor-Labb\\Blazor-Labb\\Components\\Pages\\Home.razor",
               "RelativeDocumentMoniker": "Blazor-Labb\\Components\\Pages\\Home.razor",
               "ToolTip": "C:\\Users\\acarl\\Desktop\\ITHS\\Programmering C#\\Blazor-Labb\\Blazor-Labb\\Components\\Pages\\Home.razor",
               "RelativeToolTip": "Blazor-Labb\\Components\\Pages\\Home.razor",
-              "ViewState": "AgIAAAYAAAAAAAAAAAAAABcAAAASAAAAAAAAAA==",
+              "ViewState": "AgIAACoAAAAAAAAAAAAAAEQAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
-              "WhenOpened": "2024-10-08T09:02:51.058Z"
+              "WhenOpened": "2024-10-08T09:02:51.058Z",
+              "EditorCaption": ""
             }
           ]
         }
