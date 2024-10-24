@@ -201,3 +201,208 @@ main[b-hjf1cl1zjr] {
         overflow-y: auto;
     }
 }
+/* _content/Blazor-Labb/Components/Pages/Home.razor.rz.scp.css */
+#home-page[b-ql34fmm0b2] {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#homepage[b-ql34fmm0b2], h1[b-ql34fmm0b2] {
+    font-family: 'Trebuchet MS';
+    font-weight: bold;
+    font-size: 100px;
+    margin-bottom: 100px;
+    background: linear-gradient(to right, #27296d, purple);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#homepage[b-ql34fmm0b2], button[b-ql34fmm0b2] {
+    width: 250px;
+    height: 75px;
+    font-size: 25px;
+    font-weight: bold;
+    border: none;
+    border-radius: 125px;
+    background-color: #27296d;
+    color: white;
+}
+
+    #homepage[b-ql34fmm0b2], button:hover[b-ql34fmm0b2] {
+        width: 260px;
+        height: 80px;
+        background-color: purple;
+        color: white;
+    }
+
+#homepage[b-ql34fmm0b2], h5[b-ql34fmm0b2] {
+    font-size: 25px;
+    margin-top: 100px;
+    font-weight: bold;
+}
+/* _content/Blazor-Labb/Components/Pages/NewUser.razor.rz.scp.css */
+#new-user-btn[b-p9nmusvouq] {
+    justify-self: center;
+    width: 130px;
+    height: 40px;
+    border: none;
+    border-radius: 20px;
+    background: purple;
+    color: white;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+#new-user-btn:hover[b-p9nmusvouq] {
+    width: 135px;
+    height: 42px;
+}
+
+.result[b-p9nmusvouq] {
+    font-size: 22px;
+}
+
+#form-result-container[b-p9nmusvouq] {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
+#new-user-page[b-p9nmusvouq] {
+    display: grid;
+    grid-template-rows: 1fr 5fr;
+}
+
+#page-title[b-p9nmusvouq] {
+    justify-self: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: 62px;
+    justify-self: center;
+    align-self: center;
+}
+
+#form-container[b-p9nmusvouq] {
+    display: flex;
+    justify-content: center;
+}
+
+.form-input[b-p9nmusvouq] {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-input[b-p9nmusvouq] {
+    margin: 20px;
+}
+
+#form-btn[b-p9nmusvouq] {
+    justify-self: center;
+    margin-left: 65px;
+    width: 120px;
+    height: 40px;
+    border: none;
+    border-radius: 20px;
+    background: limegreen;
+    color: white;
+    font-weight: bold;
+}
+
+    #form-btn:hover[b-p9nmusvouq] {
+        width: 125px;
+        height: 41px;
+    }
+
+label[b-p9nmusvouq] {
+    font-size: 18px;
+    font-weight: bold;
+}
+/* _content/Blazor-Labb/Components/Pages/Users.razor.rz.scp.css */
+#users-page[b-sr1oe81pfy] {
+    display: flex;
+    flex-direction: column;
+}
+
+#table-container[b-sr1oe81pfy] {
+    display: grid;
+}
+
+h1[b-sr1oe81pfy] {
+    align-self: center;
+    margin-bottom: 50px;
+    font-size: 50px;
+    font-weight: bold;
+    font-family: cursive;
+}
+
+table[b-sr1oe81pfy], td[b-sr1oe81pfy], th[b-sr1oe81pfy] {
+    padding: 0 20px 0 20px;
+}
+
+tr[b-sr1oe81pfy] {
+    border: 1px solid black;
+}
+
+#choose-container[b-sr1oe81pfy] {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.choose-btn[b-sr1oe81pfy] {
+    width: 200px;
+    height: 100px;
+    margin: 50px;
+    border: none;
+    border-radius: 20px;
+    font-weight: bold;
+    background-color: #27296d;
+    color: white;
+}
+
+.buttons-search-container[b-sr1oe81pfy] {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.buttons-container[b-sr1oe81pfy] {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+.sorting-btn[b-sr1oe81pfy] {
+    border: none;
+    border-radius: 10px;
+    width: auto;
+    height: 35px;
+    background-color: #27296d;
+    color: white;
+    font-weight: bold;
+}
+
+    .sorting-btn:hover[b-sr1oe81pfy] {
+        background-color: purple;
+        color: white;
+    }
+
+#search-btn[b-sr1oe81pfy] {
+    border: none;
+    width: 100px;
+    height: 30px;
+    background-color: #27296d;
+    color: white;
+    font-weight: bold;
+}
+
+#search-btn:hover[b-sr1oe81pfy] {
+        background-color: purple;
+}
+

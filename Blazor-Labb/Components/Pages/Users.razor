@@ -1,15 +1,14 @@
 ﻿@page "/users"
-@using System.Text.Json
-@using Microsoft.AspNetCore.Mvc.Rendering
 @rendermode InteractiveServer
+@inject NavigationManager NavigationManager
 
 <div id="users-page">
 	@if (userChooser == 0)
 	{
 		<h1>Choose Users</h1>
 		<div id="choose-container">
-			<button id="api-users-btn" class="choose-btn" @onclick="showApiUsers">Show Api Users</button>
-			<button id="my-users-btn" class="choose-btn" @onclick="showMyUsers">Show Dummy Users</button>
+			<button id="api-users-btn" class="choose-btn" @onclick="ShowApiUsers">Show Api Users</button>
+			<button id="my-users-btn" class="choose-btn" @onclick="ShowMyUsers">Show Dummy Users</button>
 		</div>
 	}
 	else
@@ -24,13 +23,13 @@
 			{
 				<div class="buttons-search-container">
 					<div class="buttons-container">
-						<button id="amount-btn" class="sorting-btn" @onclick="showAmount">@amountBtn</button>
-						<button id="name-sort-btn" class="sorting-btn" @onclick="nameSort">@nameSortBtn</button>
-						<button id="id-sort-btn" class="sorting-btn" @onclick="idSort">@idSortBtn</button>
+						<button id="amount-btn" class="sorting-btn" @onclick="ShowAmount">@amountBtn</button>
+						<button id="name-sort-btn" class="sorting-btn" @onclick="NameSort">@nameSortBtn</button>
+						<button id="id-sort-btn" class="sorting-btn" @onclick="IdSort">@idSortBtn</button>
 					</div>
 					<div class="search-container">
 						<input @bind="search"/>
-						<button id="search-btn" @onclick="searchUser">Search</button>
+						<button id="search-btn" @onclick="SearchUser">Search</button>
 					</div>
 				</div>
 				<table>
@@ -50,6 +49,7 @@
 							<td>@user.Email</td>
 							<td>@user.Address.Street<br /> @user.Address.City, @user.Address.Zipcode </td>
 							<td>@user.Company.Name - <em>"@user.Company.Catchphrase"</em></td>
+							<td><button id="btn-@user.Id" class="todo-btn" @onclick="() => ShowTodos(user.Id)">Todos</button></td>
 						</tr>
 					}
 				</table>
@@ -57,307 +57,3 @@
 		</div>	
 	}
 </div>
-
-@code {
-
-	public async void showApiUsers()
-	{
-		userChooser = 2;
-		await LoadUsers();
-	}
-	public async void showMyUsers()
-	{
-		userChooser = 1;
-		await LoadUsers();
-	}
-
-	public async void searchUser()
-	{
-		if (string.IsNullOrWhiteSpace(search))
-		{
-			users = await users.ShowAll(userChooser);
-
-		}
-		users = await users.SearchForUser(search, userChooser);
-		search = "";
-		showingAll = false;
-		amountBtn = "Show All";
-		StateHasChanged();
-	}
-
-	public void idSort()
-	{
-		idSortIsDescending = !idSortIsDescending;
-
-		if (idSortIsDescending)
-		{
-			users = users.SortOnId();
-		}
-		else
-		{
-			users = users.SortOnIdDesc();
-		}
-
-		StateHasChanged();
-	}
-
-	public void nameSort()
-	{
-		nameSortIsDescending = !nameSortIsDescending;
-
-		if (nameSortIsDescending)
-		{
-			users = users.SortOnName();
-		}
-		else
-		{
-			users = users.SortOnNameDesc();
-		}
-
-		StateHasChanged();
-	}
-
-	public async Task showAmount()
-	{
-		showingAll = !showingAll;
-
-		if (showingAll)
-		{
-			users = await users.ShowAll(userChooser);
-			amountBtn = "Show 5";
-		}
-		else
-		{
-			users =  users.ShowFew();
-			amountBtn = "Show All";
-		}
-
-		StateHasChanged();
-	}
-
-	public async Task<IUser> ChooseUser()
-	{
-		switch (userChooser)
-		{
-			case 1:
-				return new MyUser();
-			case 2:
-				return new ApiUser();
-		}
-
-		return new MyUser();
-	}
-
-	public async Task LoadUsers()
-	{
-		IUser newUser = await ChooseUser();
-		users = await newUser.GetUsersAsync();
-		users = users.ShowFew();
-	}
-
-	List<IUser> users;
-	bool showingAll = false;
-	bool nameSortIsDescending = false;
-	bool idSortIsDescending = false;
-	string amountBtn = "Show All";
-	string nameSortBtn = "Sort On Name";
-	string idSortBtn = "Sort On ID";
-	string search = "";
-	int userChooser = 0;
-
-	protected override async Task OnInitializedAsync()
-	{
-		await Task.Delay(2000);
-	}
-
-	public interface IUser
-	{
-		public string Name { get; set; }
-		public string Email { get; set; }
-		public int Id { get; set; }
-		public Address Address { get; set; }
-		public Company Company { get; set; }
-
-		Task<List<IUser>> GetUsersAsync();
-	}
-
-	public class ApiUser : IUser
-	{
-		string jsonString;
-
-		public string Name { get; set; }
-		public string Email { get; set; }
-		public int Id { get; set; }
-		public Address Address { get; set; }
-		public Company Company { get; set; }
-
-
-		public ApiUser()
-		{
-			Address = new Address();
-			Company = new Company();
-		}
-
-		public async Task<List<IUser>> GetUsersAsync()
-		{
-			List<IUser> users = new List<IUser>();
-			await CreateUserListAsync(users);
-			return users;
-		}
-
-		public async Task CreateUserListAsync(List<IUser> users)
-		{
-			jsonString = await GetJson();
-			var apiUsers = JsonSerializer.Deserialize<List<ApiUser>>(jsonString, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
-			users.AddRange(apiUsers);
-		}
-
-		public async Task<string> GetJson()
-		{
-			string url = "https://jsonplaceholder.typicode.com/users";
-			using HttpClient client = new HttpClient();
-			jsonString = await client.GetStringAsync(url);
-
-			Console.WriteLine(jsonString);
-			return jsonString;
-		}
-
-	}
-
-	public class MyUser : IUser
-	{
-		public string Name { get; set; }
-		public string Email { get; set; }
-		public int Id { get; set; }
-		public Address Address { get; set; }
-		public Company Company { get; set; }
-
-		public MyUser()
-		{
-			Address = new Address();
-			Company = new Company();
-		}
-		public async Task<List<IUser>> GetUsersAsync()
-		{
-			List<IUser> users = new List<IUser>();
-			CreateUserList(users);
-			return users;
-		}
-
-		public void CreateUserList(List<IUser> users)
-		{
-
-			string[] names =
-			{
-				"Alexander Hansson", "Emma Carlsson", "Olivia Jonsson", "Elias Svensson", "Noah Eriksson", "Ava Avasson", "Jonas Jonasson", "Bengt Bengtsson", "Charlie Charlsson", "Elsa Elsson", "Maja Majsson", "Gustav Gusson", "Karl Karlsson", "Erika Eriksson", "Hugo Hugsson"
-	};
-
-			string[] cities = {"Stockholm", "Göteborg", "Malmö"};
-			string[] streets = {"Sveavägen", "Avenyn", "Kungsgatan"};
-			string[] zipcodes = {"143 23", "103 43", "195 89"};
-			string[] companys = {"Apple", "Microsoft", "Tesla"};
-			string[] catchphrases = {"Think Different", "Empowering us all", "Accelerating the world's transition to sustainable energy"};
-
-			for (int i = 0; i < 15; i++)
-			{
-
-				int index = i % cities.Length;
-
-				MyUser user = new MyUser
-					{
-						 Name = names[i],
-						 Id = i + 1,
-						 Email = $"{names[i]}{i + 1}@{companys[index]}.com",
-						Address = new Address() { City = cities[index], Street = streets[index], Zipcode = zipcodes[index] },
-						Company = new Company() { Name = companys[index], Catchphrase = catchphrases[index] },
-					};
-				users.Add(user);
-			}
-
-		}
-	}
-
-}
-<style>
-	#users-page {
-		display: flex;
-		flex-direction: column;
-	}
-	
-	#table-container {
-		display: grid;
-	}
-
-	h1 {
-		align-self: center;
-		margin-bottom: 50px;
-		font-size: 50px;
-		font-weight: bold;
-		font-family: cursive;
-	}
-
-	table, td, th {
-		padding: 0 20px 0 20px;
-	}
-
-	tr {
-		border: 1px solid black;
-	}
-	#choose-container {
-		display: flex;
-		flex-direction: row;
-		justify-content: center;
-	}
-
-	.choose-btn {
-		width: 200px;
-		height: 100px;
-		margin: 50px;
-		border: none;
-		border-radius: 20px;
-		font-weight: bold;
-		background-color: #27296d;
-		color: white;
-	}
-	.buttons-search-container {
-		display: flex;
-		flex-direction: row;
-		justify-content: space-between;
-		margin-bottom: 10px;
-	
-	}
-
-	.buttons-container {
-		display: grid;
-		grid-template-columns: 1fr 1fr 1fr;
-		gap: 20px;
-	}
-
-	.sorting-btn {
-		border: none;
-		border-radius: 10px;
-		width: auto;
-		height: 35px;
-		background-color: #27296d;
-		color: white;
-		font-weight: bold;
-	}
-
-	.sorting-btn:hover {
-		background-color: purple;
-		color: white;
-	}
-
-	#search-btn {
-		border: none;
-		width: 100px;
-		height: 30px;
-		background-color: #27296d;
-		color: white;
-		font-weight: bold;
-	}
-
-	#search-btn:hover {
-		background-color: purple;
-	}
-</style>

@@ -26,16 +26,8 @@ build_metadata.AdditionalFiles.CssScope =
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xFcnJvci5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
-[C:/Users/acarl/Desktop/ITHS/Programmering C\#/Blazor-Labb/Blazor-Labb/Components/Pages/Home.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb21lLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/acarl/Desktop/ITHS/Programmering C\#/Blazor-Labb/Blazor-Labb/Components/Pages/NewUser.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xOZXdVc2VyLnJhem9y
-build_metadata.AdditionalFiles.CssScope = 
-
-[C:/Users/acarl/Desktop/ITHS/Programmering C\#/Blazor-Labb/Blazor-Labb/Components/Pages/Users.razor]
-build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xVc2Vycy5yYXpvcg==
+[C:/Users/acarl/Desktop/ITHS/Programmering C\#/Blazor-Labb/Blazor-Labb/Components/Pages/Todos.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xUb2Rvcy5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = 
 
 [C:/Users/acarl/Desktop/ITHS/Programmering C\#/Blazor-Labb/Blazor-Labb/Components/Routes.razor]
@@ -53,3 +45,15 @@ build_metadata.AdditionalFiles.CssScope = b-hjf1cl1zjr
 [C:/Users/acarl/Desktop/ITHS/Programmering C\#/Blazor-Labb/Blazor-Labb/Components/Layout/NavMenu.razor]
 build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xMYXlvdXRcTmF2TWVudS5yYXpvcg==
 build_metadata.AdditionalFiles.CssScope = b-iwo7t3ioqj
+
+[C:/Users/acarl/Desktop/ITHS/Programmering C\#/Blazor-Labb/Blazor-Labb/Components/Pages/Home.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xIb21lLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-ql34fmm0b2
+
+[C:/Users/acarl/Desktop/ITHS/Programmering C\#/Blazor-Labb/Blazor-Labb/Components/Pages/NewUser.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xOZXdVc2VyLnJhem9y
+build_metadata.AdditionalFiles.CssScope = b-p9nmusvouq
+
+[C:/Users/acarl/Desktop/ITHS/Programmering C\#/Blazor-Labb/Blazor-Labb/Components/Pages/Users.razor]
+build_metadata.AdditionalFiles.TargetPath = Q29tcG9uZW50c1xQYWdlc1xVc2Vycy5yYXpvcg==
+build_metadata.AdditionalFiles.CssScope = b-sr1oe81pfy

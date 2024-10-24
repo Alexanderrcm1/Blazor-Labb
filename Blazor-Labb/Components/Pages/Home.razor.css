@@ -1,0 +1,40 @@
+﻿#home-page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+#homepage, h1 {
+    font-family: 'Trebuchet MS';
+    font-weight: bold;
+    font-size: 100px;
+    margin-bottom: 100px;
+    background: linear-gradient(to right, #27296d, purple);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#homepage, button {
+    width: 250px;
+    height: 75px;
+    font-size: 25px;
+    font-weight: bold;
+    border: none;
+    border-radius: 125px;
+    background-color: #27296d;
+    color: white;
+}
+
+    #homepage, button:hover {
+        width: 260px;
+        height: 80px;
+        background-color: purple;
+        color: white;
+    }
+
+#homepage, h5 {
+    font-size: 25px;
+    margin-top: 100px;
+    font-weight: bold;
+}

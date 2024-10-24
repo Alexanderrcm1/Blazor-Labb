@@ -1,0 +1,44 @@
+﻿@page "/todos"
+@using System.Formats.Asn1
+@using System.Text.Json
+@using System.Text.Json.Serialization
+@rendermode InteractiveServer
+
+<h3>Todo</h3>
+
+<p></p>
+
+@code {
+
+	public class Todo
+	{
+		public int UserId { get; set; }
+		public int Id { get; set; }
+		public string Title { get; set; }
+		public bool Completed { get; set; }
+
+		public Todo()
+		{
+			Title = "";
+		}
+
+		public async Task<string> GetJson()
+		{
+			string url = "https://jsonplaceholder.typicode.com/todos";
+			HttpClient client = new HttpClient();
+			string jsonString = await client.GetStringAsync(url);
+			return jsonString;
+		}
+
+		public async Task<List<Todo>> GetTodos()
+		{
+			List<Todo> todoList = new List<Todo>();
+
+			string jsonString = await GetJson();
+			var todos = JsonSerializer.Deserialize<List<Todo>>(jsonString, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
+			if (todos != null) todoList.AddRange(todos);
+			return todoList;
+		}
+	}
+
+}

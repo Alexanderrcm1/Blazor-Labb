@@ -1,0 +1,79 @@
+﻿#new-user-btn {
+    justify-self: center;
+    width: 130px;
+    height: 40px;
+    border: none;
+    border-radius: 20px;
+    background: purple;
+    color: white;
+    font-weight: bold;
+    margin-top: 20px;
+}
+
+#new-user-btn:hover {
+    width: 135px;
+    height: 42px;
+}
+
+.result {
+    font-size: 22px;
+}
+
+#form-result-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+}
+
+#new-user-page {
+    display: grid;
+    grid-template-rows: 1fr 5fr;
+}
+
+#page-title {
+    justify-self: center;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-size: 62px;
+    justify-self: center;
+    align-self: center;
+}
+
+#form-container {
+    display: flex;
+    justify-content: center;
+}
+
+.form-input {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.form-input {
+    margin: 20px;
+}
+
+#form-btn {
+    justify-self: center;
+    margin-left: 65px;
+    width: 120px;
+    height: 40px;
+    border: none;
+    border-radius: 20px;
+    background: limegreen;
+    color: white;
+    font-weight: bold;
+}
+
+    #form-btn:hover {
+        width: 125px;
+        height: 41px;
+    }
+
+label {
+    font-size: 18px;
+    font-weight: bold;
+}

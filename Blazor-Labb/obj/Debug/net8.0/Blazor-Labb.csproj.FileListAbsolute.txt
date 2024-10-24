@@ -28,3 +28,6 @@ C:\Users\acarl\Desktop\ITHS\Programmering C#\Blazor-Labb\Blazor-Labb\obj\Debug\n
 C:\Users\acarl\Desktop\ITHS\Programmering C#\Blazor-Labb\Blazor-Labb\obj\Debug\net8.0\Blazor-Labb.pdb
 C:\Users\acarl\Desktop\ITHS\Programmering C#\Blazor-Labb\Blazor-Labb\obj\Debug\net8.0\Blazor-Labb.genruntimeconfig.cache
 C:\Users\acarl\Desktop\ITHS\Programmering C#\Blazor-Labb\Blazor-Labb\obj\Debug\net8.0\ref\Blazor-Labb.dll
+C:\Users\acarl\Desktop\ITHS\Programmering C#\Blazor-Labb\Blazor-Labb\obj\Debug\net8.0\scopedcss\Components\Pages\Users.razor.rz.scp.css
+C:\Users\acarl\Desktop\ITHS\Programmering C#\Blazor-Labb\Blazor-Labb\obj\Debug\net8.0\scopedcss\Components\Pages\Home.razor.rz.scp.css
+C:\Users\acarl\Desktop\ITHS\Programmering C#\Blazor-Labb\Blazor-Labb\obj\Debug\net8.0\scopedcss\Components\Pages\NewUser.razor.rz.scp.css

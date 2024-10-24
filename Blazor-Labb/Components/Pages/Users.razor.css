@@ -1,0 +1,83 @@
+﻿#users-page {
+    display: flex;
+    flex-direction: column;
+}
+
+#table-container {
+    display: grid;
+}
+
+h1 {
+    align-self: center;
+    margin-bottom: 50px;
+    font-size: 50px;
+    font-weight: bold;
+    font-family: cursive;
+}
+
+table, td, th {
+    padding: 0 20px 0 20px;
+}
+
+tr {
+    border: 1px solid black;
+}
+
+#choose-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.choose-btn {
+    width: 200px;
+    height: 100px;
+    margin: 50px;
+    border: none;
+    border-radius: 20px;
+    font-weight: bold;
+    background-color: #27296d;
+    color: white;
+}
+
+.buttons-search-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    margin-bottom: 10px;
+}
+
+.buttons-container {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+}
+
+.sorting-btn {
+    border: none;
+    border-radius: 10px;
+    width: auto;
+    height: 35px;
+    background-color: #27296d;
+    color: white;
+    font-weight: bold;
+}
+
+    .sorting-btn:hover {
+        background-color: purple;
+        color: white;
+    }
+
+#search-btn {
+    border: none;
+    width: 100px;
+    height: 30px;
+    background-color: #27296d;
+    color: white;
+    font-weight: bold;
+}
+
+#search-btn:hover {
+        background-color: purple;
+}
+
