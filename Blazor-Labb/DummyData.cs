@@ -1,31 +1,16 @@
 ﻿namespace Blazor_Labb;
 
-public class MyUser : IUser
+public class DummyData : IDataAccess
 {
-	public string Name { get; set; }
-	public string Email { get; set; }
-	public int Id { get; set; }
-	public Address Address { get; set; }
-	public Company Company { get; set; }
-
-	public MyUser()
+	public async Task<List<User>> GetUsersAsync()
 	{
-		Address = new Address();
-		Company = new Company();
-		Name = "";
-		Email = "";
-		Id = 0;
-	}
-	public async Task<List<IUser>> GetUsersAsync()
-	{
-		var users = new List<IUser>();
-		await CreateUserList(users);
+		var users = new List<User>();
+		await CreateUserListAsync(users);
 		return users;
 	}
 
-	public async Task CreateUserList(List<IUser> users)
+	public Task CreateUserListAsync(List<User> users)
 	{
-
 		string[] names =
 		[
 			"Alexander Hansson", "Emma Carlsson", "Olivia Jonsson", "Elias Svensson", "Noah Eriksson", "Ava Avasson", "Jonas Jonasson", "Bengt Bengtsson", "Charlie Charlsson", "Elsa Elsson", "Maja Majsson", "Gustav Gusson", "Karl Karlsson", "Erika Eriksson", "Hugo Hugsson"
@@ -43,7 +28,7 @@ public class MyUser : IUser
 
 			int index = i % cities.Length;
 
-			var user = new MyUser
+			var user = new User
 			{
 				Name = names[i],
 				Id = i + 1,
@@ -53,7 +38,7 @@ public class MyUser : IUser
 			};
 			users.Add(user);
 		}
-		await Task.Delay(1500);
 
+		return Task.CompletedTask;
 	}
 }

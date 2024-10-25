@@ -1,8 +1,6 @@
-﻿using Blazor_Labb.Components.Pages;
+﻿namespace Blazor_Labb;
 
-namespace Blazor_Labb;
-
-public interface IUser
+public class User
 {
 	public string Name { get; set; }
 	public string Email { get; set; }
@@ -10,5 +8,13 @@ public interface IUser
 	public Address Address { get; set; }
 	public Company Company { get; set; }
 
-	Task<List<IUser>> GetUsersAsync();
+
+	public User()
+	{
+		Address = new Address();
+		Company = new Company();
+		Name = "";
+		Email = "";
+		Id = 0;
+	}
 }

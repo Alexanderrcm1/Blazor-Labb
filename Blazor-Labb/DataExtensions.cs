@@ -3,9 +3,9 @@ using static Blazor_Labb.Components.Pages.Users;
 
 namespace Blazor_Labb;
 
-public static class UserExtensions
+public static class DataExtensions
 {
-	public static async Task<List<IUser>> SearchForUser(this List<IUser> users, string search, int userChooser)
+	public static async Task<List<User>> SearchForUser(this List<User> users, string search, int userChooser)
 	{
 		users = await users.ShowAll(userChooser);
 		if (string.IsNullOrWhiteSpace(search))
@@ -13,16 +13,16 @@ public static class UserExtensions
 			return users;
 		}
 
-		IEnumerable<IUser> query =
+		IEnumerable<User> query =
 			from user in users
 			where user.Name.ToLower().Contains(search.ToLower())
 			select user;
 
 		return query.ToList();
 	}
-	public static List<IUser> SortOnId(this List<IUser> users)
+	public static List<User> SortOnId(this List<User> users)
 	{
-		IEnumerable<IUser> query =
+		IEnumerable<User> query =
 			from user in users
 			orderby user.Id
 			select user;
@@ -30,18 +30,18 @@ public static class UserExtensions
 		return query.ToList();
 	}
 
-	public static List<IUser> SortOnIdDesc(this List<IUser> users)
+	public static List<User> SortOnIdDesc(this List<User> users)
 	{
-		IEnumerable<IUser> query =
+		IEnumerable<User> query =
 			from user in users
 			orderby user.Id descending 
 			select user;
 
 		return query.ToList();
 	}
-	public static List<IUser> SortOnName(this List<IUser> users)
+	public static List<User> SortOnName(this List<User> users)
 	{
-		IEnumerable<IUser> query =
+		IEnumerable<User> query =
 			from user in users
 			orderby user.Name[0]
 			select user;
@@ -49,9 +49,9 @@ public static class UserExtensions
 		return query.ToList();
 	}
 
-	public static List<IUser> SortOnNameDesc(this List<IUser> users)
+	public static List<User> SortOnNameDesc(this List<User> users)
 	{
-		IEnumerable<IUser> query =
+		IEnumerable<User> query =
 			from user in users
 			orderby user.Name[0] descending 
 			select user;
@@ -59,9 +59,9 @@ public static class UserExtensions
 		return query.ToList();
 	}
 
-	public static List<IUser> ShowFew(this List<IUser> users)
+	public static List<User> ShowFew(this List<User> users)
 	{
-		var userList = new List<IUser>();
+		var userList = new List<User>();
 
 		for (int i = 0; i < 5; i++)
 		{
@@ -71,19 +71,19 @@ public static class UserExtensions
 		return userList;
 	}
 
-	public static async Task<List<IUser>> ShowAll(this List<IUser> users, int userChooser)
+	public static async Task<List<User>> ShowAll(this List<User> users, int userChooser)
 	{
-		IUser newUser;
+		IDataAccess data;
 
 		if (userChooser == 1)
 		{
-			newUser = new MyUser();
-			users = await newUser.GetUsersAsync();
+			data = new DummyData();
+			users = await data.GetUsersAsync();
 		}
 		else if (userChooser == 2)
 		{
-			newUser = new ApiUser();
-			users = await newUser.GetUsersAsync();
+			data = new ApiData();
+			users = await data.GetUsersAsync();
 		}
 		return users;
 	}

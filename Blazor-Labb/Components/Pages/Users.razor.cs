@@ -1,4 +1,6 @@
-﻿namespace Blazor_Labb.Components.Pages;
+﻿using System.Text.Json;
+
+namespace Blazor_Labb.Components.Pages;
 
 public partial class Users
 {
@@ -7,7 +9,7 @@ public partial class Users
 		NavigationManager.NavigateTo("todos");
 	}
 
-	private List<IUser> users = new List<IUser>();
+	private List<User> users = new List<User>();
 	private bool showingAll = false;
 	private bool nameSortIsDescending = false;
 	private bool idSortIsDescending = false;
@@ -15,28 +17,28 @@ public partial class Users
 	private readonly string nameSortBtn = "Sort On Name";
 	private readonly string idSortBtn = "Sort On ID";
 	private string search = "";
-	private int userChooser = 0;
+	private int dataChooser = 0;
 
 	public async Task ShowApiUsers()
 	{
-		userChooser = 2;
-		await LoadUsers();
+		dataChooser = 2;
+		await LoadData();
 	}
 
 	public async Task ShowMyUsers()
 	{
-		userChooser = 1;
-		await LoadUsers();
+		dataChooser = 1;
+		await LoadData();
 	}
 
 	public async Task SearchUser()
 	{
 		if (string.IsNullOrWhiteSpace(search))
 		{
-			users = await users.ShowAll(userChooser);
+			users = await users.ShowAll(dataChooser);
 		}
 
-		users = await users.SearchForUser(search, userChooser);
+		users = await users.SearchForUser(search, dataChooser);
 		search = "";
 		showingAll = false;
 		amountBtn = "Show All";
@@ -81,7 +83,7 @@ public partial class Users
 
 		if (showingAll)
 		{
-			users = await users.ShowAll(userChooser);
+			users = await users.ShowAll(dataChooser);
 			amountBtn = "Show 5";
 		}
 		else
@@ -93,25 +95,26 @@ public partial class Users
 		StateHasChanged();
 	}
 
-	public IUser ChooseUser()
+	public IDataAccess ChooseData()
 	{
-		switch (userChooser)
+		switch (dataChooser)
 		{
 			case 1:
-				return new MyUser();
+				return new DummyData();
 			case 2:
-				return new ApiUser();
+				return new ApiData();
 			default:
 				break;
 		}
 
-		return new MyUser();
+		return new DummyData();
 	}
 
-	public async Task LoadUsers()
+	public async Task LoadData()
 	{
-		IUser newUser = ChooseUser();
-		users = await newUser.GetUsersAsync();
+		IDataAccess data = ChooseData();
+		await Task.Delay(1500);
+		users = await data.GetUsersAsync();
 		users = users.ShowFew();
 	}
 }
