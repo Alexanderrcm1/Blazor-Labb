@@ -4,11 +4,6 @@ namespace Blazor_Labb.Components.Pages;
 
 public partial class Users
 {
-	public void ShowTodos(int buttonId)
-	{
-		NavigationManager.NavigateTo("todos");
-	}
-
 	private List<User> users = new List<User>();
 	private bool showingAll = false;
 	private bool nameSortIsDescending = false;

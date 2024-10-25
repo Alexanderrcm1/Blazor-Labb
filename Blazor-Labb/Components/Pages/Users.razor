@@ -49,7 +49,6 @@
 							<td>@user.Email</td>
 							<td>@user.Address.Street<br /> @user.Address.City, @user.Address.Zipcode </td>
 							<td>@user.Company.Name - <em>"@user.Company.Catchphrase"</em></td>
-							<td><button id="btn-@user.Id" class="todo-btn" @onclick="() => ShowTodos(user.Id)">Todos</button></td>
 						</tr>
 					}
 				</table>
