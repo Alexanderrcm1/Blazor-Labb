@@ -16,7 +16,10 @@ public class ApiData : IDataAccess
 	{
 		_jsonString = await GetJson();
 		var apiUsers = JsonSerializer.Deserialize<List<User>>(_jsonString, new JsonSerializerOptions { PropertyNameCaseInsensitive = true });
-		if (apiUsers != null) users.AddRange(apiUsers);
+		if (apiUsers != null)
+		{
+			users.AddRange(apiUsers);
+		}
 	}
 
 	public async Task<string> GetJson()
