@@ -4,7 +4,7 @@ namespace Blazor_Labb.Components.Pages;
 
 public partial class Users
 {
-	private List<User> _users = new List<User>();
+	private List<User> _users = new ();
 	private bool _showingAll = false;
 	private bool _nameSortIsDescending = false;
 	private bool _idSortIsDescending = false;
