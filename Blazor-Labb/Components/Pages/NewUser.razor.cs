@@ -4,7 +4,7 @@ namespace Blazor_Labb.Components.Pages;
 
 public partial class NewUser
 {
-	private User _user = new();
+	private readonly User _user = new();
 	private string _title = "Add a new user";
 	private bool _formNotDone = true;
 

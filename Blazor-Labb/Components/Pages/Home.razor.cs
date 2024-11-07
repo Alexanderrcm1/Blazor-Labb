@@ -4,7 +4,7 @@ public partial class Home
 {
 	private string _title = "";
 	private string _name = "";
-	private string[] _titleArray = ["B", "L", "A", "Z", "O", "R", " ", "L", "A", "B", "B"];
+	private readonly string[] _titleArray = ["B", "L", "A", "Z", "O", "R", " ", "L", "A", "B", "B"];
 	private bool _showBtn = true;
 
 	public async Task BtnClick()
