@@ -12,15 +12,9 @@ public partial class Home
 		if (_title == "")
 		{
 			_showBtn = false;
-<<<<<<< HEAD
 			foreach (var t in _titleArray)
 			{
 				_title += t;
-=======
-			foreach (var s in _titleArray)
-			{
-				_title += s;
->>>>>>> Development
 				StateHasChanged();
 				await Task.Delay(200);
 			}
