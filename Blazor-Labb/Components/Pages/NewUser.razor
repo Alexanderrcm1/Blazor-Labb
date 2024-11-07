@@ -27,34 +27,40 @@
 					<ValidationMessage  For="() => _user.Email"/>
 				</div>
 
-				<div id="street-container" class="form-input">
-					<label for="street" id="street-label">Street</label>
-					<InputText id="street" @bind-Value="_user.Address.Street"/>
-					<ValidationMessage For="() => _user.Address.Street"/>
-				</div>
+				<div id="address-container">
+
+					<div id="street-container" class="form-input">
+						<label for="street" id="street-label">Street</label>
+						<InputText id="street" @bind-Value="_user.Address.Street"/>
+						<ValidationMessage For="() => _user.Address.Street"/>
+					</div>
 				
-				<div id="city-container" class="form-input">
-					<label for="city" id="city-label">City</label>
-					<InputText id="city" @bind-Value="_user.Address.City"/>
-					<ValidationMessage For="() => _user.Address.City"/>
-				</div>
-				
-				<div id="zipcode-container" class="form-input">
-					<label for="zipcode" id="zipcode-label">Zipcode</label>
-					<InputText id="zipcode" @bind-Value="_user.Address.Zipcode"/>
-					<ValidationMessage For="() => _user.Address.Zipcode"/>
-				</div>
-				
-				<div id="company-name-container" class="form-input">
-					<label for="company-name" id="company-name-label">Company Name</label>
-					<InputText id="company-name" @bind-Value="_user.Company.Name" />
-					<ValidationMessage For="() => _user.Company.Name" />
+					<div id="city-container" class="form-input">
+						<label for="city" id="city-label">City</label>
+						<InputText id="city" @bind-Value="_user.Address.City"/>
+						<ValidationMessage For="() => _user.Address.City"/>
+					</div>
+					
+					<div id="zipcode-container" class="form-input">
+						<label for="zipcode" id="zipcode-label">Zipcode</label>
+						<InputText id="zipcode" @bind-Value="_user.Address.Zipcode"/>
+						<ValidationMessage For="() => _user.Address.Zipcode"/>
+					</div>
+
 				</div>
 
-				<div id="company-catchphrase-container" class="form-input">
-					<label for="company-catchphrase" id="company-catchphrase-label">Company Catchphrase</label>
-					<InputText id="company-catchphrase" @bind-Value="_user.Company.Catchphrase" />
-					<ValidationMessage For="() => _user.Company.Catchphrase" />
+				<div id="company-container">
+					<div id="company-name-container" class="form-input">
+						<label for="company-name" id="company-name-label">Company Name</label>
+						<InputText id="company-name" @bind-Value="_user.Company.Name" />
+						<ValidationMessage For="() => _user.Company.Name" />
+					</div>
+
+					<div id="company-catchphrase-container" class="form-input">
+						<label for="company-catchphrase" id="company-catchphrase-label">Company Catchphrase</label>
+						<InputText id="company-catchphrase" @bind-Value="_user.Company.Catchphrase" />
+						<ValidationMessage For="() => _user.Company.Catchphrase" />
+					</div>
 				</div>
 
 				<button type="submit" id="form-btn">Submit</button>

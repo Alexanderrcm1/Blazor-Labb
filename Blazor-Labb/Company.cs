@@ -1,7 +1,12 @@
-﻿namespace Blazor_Labb;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Blazor_Labb;
 
 public class Company
-{
+{	
+		[Required]
 	 	public string? Name { get; set; }
-	 	public string? Catchphrase { get; set; }
+
+	    [Required]
+		public string? Catchphrase { get; set; }
 }
