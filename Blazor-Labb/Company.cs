@@ -4,9 +4,6 @@ namespace Blazor_Labb;
 
 public class Company
 {	
-		[Required]
-	 	public string? Name { get; set; }
-
-	    [Required]
-		public string? Catchphrase { get; set; }
+	public string? Name { get; set; }
+	public string? Catchphrase { get; set; }
 }
