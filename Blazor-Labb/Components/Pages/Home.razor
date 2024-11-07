@@ -4,10 +4,10 @@
 <PageTitle>Home</PageTitle>
 
 <div id="home-page">
-	<h1>@title</h1>
-	@if (showBtn)
+	<h1>@_title</h1>
+	@if (_showBtn)
 	{
 		<button @onclick="BtnClick">Press Me!</button>
 	}
-	<h5><em>@name</em></h5>
+	<h5><em>@_name</em></h5>
 </div>
