@@ -15,7 +15,7 @@
 	{
 		<h1>Users</h1>
 		<div id="table-container">
-			@if (_users == null || !_users.Any())
+			@if (_users == null)
 			{
 				<p>Loading...</p>
 			}
@@ -32,6 +32,7 @@
 						<button id="search-btn" @onclick="SearchUser">Search</button>
 					</div>
 				</div>
+
 				<table>
 					<tr>
 						<th>ID</th>
