@@ -3,7 +3,7 @@
 @inject NavigationManager NavigationManager
 
 <div id="users-page">
-	@if (dataChooser == 0)
+	@if (_dataChooser == 0)
 	{
 		<h1>Choose Users</h1>
 		<div id="choose-container">
@@ -15,7 +15,7 @@
 	{
 		<h1>Users</h1>
 		<div id="table-container">
-			@if (users == null || !users.Any())
+			@if (_users == null || !_users.Any())
 			{
 				<p>Loading...</p>
 			}
@@ -23,12 +23,12 @@
 			{
 				<div class="buttons-search-container">
 					<div class="buttons-container">
-						<button id="amount-btn" class="sorting-btn" @onclick="ShowAmount">@amountBtn</button>
-						<button id="name-sort-btn" class="sorting-btn" @onclick="NameSort">@nameSortBtn</button>
-						<button id="id-sort-btn" class="sorting-btn" @onclick="IdSort">@idSortBtn</button>
+						<button id="amount-btn" class="sorting-btn" @onclick="ShowAmount">@_amountBtn</button>
+						<button id="name-sort-btn" class="sorting-btn" @onclick="NameSort">@_nameSortBtn</button>
+						<button id="id-sort-btn" class="sorting-btn" @onclick="IdSort">@_idSortBtn</button>
 					</div>
 					<div class="search-container">
-						<input @bind="search"/>
+						<input @bind="_search"/>
 						<button id="search-btn" @onclick="SearchUser">Search</button>
 					</div>
 				</div>
@@ -41,7 +41,7 @@
 						<th>Company</th>
 
 					</tr>
-					@foreach (var user in users)
+					@foreach (var user in _users)
 					{
 						<tr>
 							<td>@user.Id</td>

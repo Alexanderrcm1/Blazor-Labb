@@ -4,53 +4,53 @@ namespace Blazor_Labb.Components.Pages;
 
 public partial class Users
 {
-	private List<User> users = new List<User>();
-	private bool showingAll = false;
-	private bool nameSortIsDescending = false;
-	private bool idSortIsDescending = false;
-	private string amountBtn = "Show All";
-	private readonly string nameSortBtn = "Sort On Name";
-	private readonly string idSortBtn = "Sort On ID";
-	private string search = "";
-	private int dataChooser = 0;
+	private List<User> _users = new List<User>();
+	private bool _showingAll = false;
+	private bool _nameSortIsDescending = false;
+	private bool _idSortIsDescending = false;
+	private string _amountBtn = "Show All";
+	private readonly string _nameSortBtn = "Sort On Name";
+	private readonly string _idSortBtn = "Sort On ID";
+	private string _search = "";
+	private int _dataChooser = 0;
 
 	public async Task ShowApiUsers()
 	{
-		dataChooser = 2;
+		_dataChooser = 2;
 		await LoadData();
 	}
 
 	public async Task ShowMyUsers()
 	{
-		dataChooser = 1;
+		_dataChooser = 1;
 		await LoadData();
 	}
 
 	public async Task SearchUser()
 	{
-		if (string.IsNullOrWhiteSpace(search))
+		if (string.IsNullOrWhiteSpace(_search))
 		{
-			users = await users.ShowAll(dataChooser);
+			_users = await _users.ShowAll(_dataChooser);
 		}
 
-		users = await users.SearchForUser(search, dataChooser);
-		search = "";
-		showingAll = false;
-		amountBtn = "Show All";
+		_users = await _users.SearchForUser(_search, _dataChooser);
+		_search = "";
+		_showingAll = false;
+		_amountBtn = "Show All";
 		StateHasChanged();
 	}
 
 	public void IdSort()
 	{
-		idSortIsDescending = !idSortIsDescending;
+		_idSortIsDescending = !_idSortIsDescending;
 
-		if (idSortIsDescending)
+		if (_idSortIsDescending)
 		{
-			users = users.SortOnId();
+			_users = _users.SortOnId();
 		}
 		else
 		{
-			users = users.SortOnIdDesc();
+			_users = _users.SortOnIdDesc();
 		}
 
 		StateHasChanged();
@@ -58,15 +58,15 @@ public partial class Users
 
 	public void NameSort()
 	{
-		nameSortIsDescending = !nameSortIsDescending;
+		_nameSortIsDescending = !_nameSortIsDescending;
 
-		if (nameSortIsDescending)
+		if (_nameSortIsDescending)
 		{
-			users = users.SortOnName();
+			_users = _users.SortOnName();
 		}
 		else
 		{
-			users = users.SortOnNameDesc();
+			_users = _users.SortOnNameDesc();
 		}
 
 		StateHasChanged();
@@ -74,17 +74,17 @@ public partial class Users
 
 	public async Task ShowAmount()
 	{
-		showingAll = !showingAll;
+		_showingAll = !_showingAll;
 
-		if (showingAll)
+		if (_showingAll)
 		{
-			users = await users.ShowAll(dataChooser);
-			amountBtn = "Show 5";
+			_users = await _users.ShowAll(_dataChooser);
+			_amountBtn = "Show 5";
 		}
 		else
 		{
-			users = users.ShowFew();
-			amountBtn = "Show All";
+			_users = _users.ShowFew();
+			_amountBtn = "Show All";
 		}
 
 		StateHasChanged();
@@ -92,7 +92,7 @@ public partial class Users
 
 	public IDataAccess ChooseData()
 	{
-		switch (dataChooser)
+		switch (_dataChooser)
 		{
 			case 1:
 				return new DummyData();
@@ -109,7 +109,7 @@ public partial class Users
 	{
 		IDataAccess data = ChooseData();
 		await Task.Delay(1500);
-		users = await data.GetUsersAsync();
-		users = users.ShowFew();
+		_users = await data.GetUsersAsync();
+		_users = _users.ShowFew();
 	}
 }
