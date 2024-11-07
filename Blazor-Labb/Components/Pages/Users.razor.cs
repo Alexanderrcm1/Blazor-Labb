@@ -4,7 +4,7 @@ namespace Blazor_Labb.Components.Pages;
 
 public partial class Users
 {
-	private List<User> _users;
+	private List<User> _users = new List<User>();
 	private bool _showingAll = false;
 	private bool _nameSortIsDescending = false;
 	private bool _idSortIsDescending = false;
@@ -13,6 +13,7 @@ public partial class Users
 	private readonly string _idSortBtn = "Sort On ID";
 	private string _search = "";
 	private int _dataChooser = 0;
+	private bool _loading = true;
 
 	public async Task ShowApiUsers()
 	{
@@ -108,8 +109,9 @@ public partial class Users
 	public async Task LoadData()
 	{
 		IDataAccess data = ChooseData();
-		await Task.Delay(1500);
 		_users = await data.GetUsersAsync();
 		_users = _users.ShowFew();
+		await Task.Delay(1500);
+		_loading = false;
 	}
 }

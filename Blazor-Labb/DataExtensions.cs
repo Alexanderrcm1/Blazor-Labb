@@ -16,8 +16,8 @@ public static class DataExtensions
 		IEnumerable<User> query =
 			from user in users
 			where user.Name.ToLower().Contains(search.ToLower())
-			select user; 
-		
+			select user;
+
 		return query.ToList();
 	}
 	public static List<User> SortOnId(this List<User> users)
