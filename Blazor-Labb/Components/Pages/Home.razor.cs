@@ -2,25 +2,25 @@
 
 public partial class Home
 {
-	private string title = "";
-	private string name = "";
-	private string[] titleArray = ["B", "L", "A", "Z", "O", "R", " ", "L", "A", "B", "B"];
-	private bool showBtn = true;
+	private string _title = "";
+	private string _name = "";
+	private readonly string[] _titleArray = ["B", "L", "A", "Z", "O", "R", " ", "L", "A", "B", "B"];
+	private bool _showBtn = true;
 
 	public async Task BtnClick()
 	{
-		if (title == "")
+		if (_title == "")
 		{
-			showBtn = false;
-			foreach (var s in titleArray)
+			_showBtn = false;
+			foreach (var t in _titleArray)
 			{
-				title += s;
+				_title += t;
 				StateHasChanged();
 				await Task.Delay(200);
 			}
 
 			await Task.Delay(1000);
-			name = "Alexander Carlsson Musa";
+			_name = "Alexander Carlsson Musa";
 		}
 	}
 }

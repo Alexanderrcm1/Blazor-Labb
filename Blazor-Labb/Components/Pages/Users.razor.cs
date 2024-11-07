@@ -10,7 +10,7 @@ public partial class Users
 	private bool _idSortIsDescending = false;
 	private string _amountBtn = "Show All";
 	private readonly string _nameSortBtn = "Sort On Name";
-	private readonly string idSortBtn = "Sort On ID";
+	private readonly string _idSortBtn = "Sort On ID";
 	private string _search = "";
 	private int _dataChooser = 0;
 
