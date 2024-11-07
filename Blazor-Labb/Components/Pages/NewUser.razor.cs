@@ -8,24 +8,6 @@ public partial class NewUser
 	private string _title = "Add a new user";
 	private bool _formNotDone = true;
 
-	public class User
-	{
-		[Required]
-		[RegularExpression(@"^[a-zA-Z]+(-[a-zA-Z]+)*$", ErrorMessage = "First name contains invalid characters")]
-		public string? FirstName { get; set; }
-
-		[Required]
-		[RegularExpression(@"^[a-zA-Z]+(-[a-zA-Z]+)*$", ErrorMessage = "Last name contains invalid characters")]
-		public string? LastName { get; set; }
-
-		[Required]
-		[RegularExpression(@"^[a-zA-Z0-9._%+-]{3,}@[a-zA-Z0-9.-]{3,}\.[a-zA-Z]{2,3}$",
-			ErrorMessage = "Incorrect Email.")]
-		public string? Email { get; set; }
-
-		[Range(12, 99)] public int Age { get; set; }
-	}
-
 	public void AddUser()
 	{
 		_formNotDone = false;
@@ -36,9 +18,13 @@ public partial class NewUser
 	{
 		_formNotDone = true;
 		_title = "Add a new user";
-		_user.FirstName = "";
-		_user.LastName = "";
+		_user.Id = 0;
+		_user.Name = "";
 		_user.Email = "";
-		_user.Age = 0;
+		_user.Address.Street = "";
+		_user.Address.City = "";
+		_user.Address.Zipcode = "";
+		_user.Company.Name = "";
+		_user.Company.Catchphrase = "";
 	}
 }
