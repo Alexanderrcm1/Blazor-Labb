@@ -1,8 +1,14 @@
-﻿namespace Blazor_Labb;
+﻿using System.ComponentModel.DataAnnotations;
+
+namespace Blazor_Labb;
 
 public class User
 {
+	[Required]
+	[RegularExpression(@"^[a-zA-Z]+([-\s][a-zA-Z]+)*$", ErrorMessage = "First name contains invalid characters")]
 	public string Name { get; set; }
+	[Required]
+	[RegularExpression(@"^[a-zA-Z0-9._%+-]{3,}@[a-zA-Z0-9.-]{3,}\.[a-zA-Z]{2,3}$", ErrorMessage = "Incorrect Email.")]
 	public string Email { get; set; }
 	public int Id { get; set; }
 	public Address Address { get; set; }
